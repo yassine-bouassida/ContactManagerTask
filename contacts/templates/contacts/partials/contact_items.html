@@ -1,0 +1,5 @@
+{% for c in contacts %}
+  {% include 'contacts/partials/contact_card.html' %}
+{% empty %}
+  <p>No contacts found.</p>
+{% endfor %}

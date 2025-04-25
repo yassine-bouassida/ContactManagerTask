@@ -1,0 +1,18 @@
+<div hx-swap-oob="innerHTML:#form-errors"></div>
+
+<div id="contact-{{ c.pk }}" class="p-4 border rounded flex justify-between items-center">
+  <div>
+    <p class="font-semibold">{{ c.name }}</p>
+    <p class="text-sm text-gray-600">{{ c.email }}</p>
+  </div>
+  <button
+    hx-delete="{% url 'contacts:delete' c.pk %}"
+    hx-headers='{"X-CSRFToken":"{{ csrf_token }}"}'
+    hx-confirm="Are you sure you want to delete {{ c.name }}?"
+    hx-target="#contact-{{ c.pk }}"
+    hx-swap="delete"
+    class="text-red-500 font-bold"
+  >
+    Delete
+  </button>
+</div>
